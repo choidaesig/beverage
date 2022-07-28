@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/XSL/Transform">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width = device-width, initial-scale = 1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> sub </title>
+    <style>
+        header {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-bottom: 100px;
+            border-bottom: 1px solid black;
+
+        }
+
+        header h1:hover {
+            color: greenyellow;
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+            align-content: center;
+        }
+
+        main img {
+            width: 100px;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .money div {
+            text-align: center
+        }
+
+        .money {
+            width: 100%;
+        }
+
+        .buy {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 7vh 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        table {
+            font-size: 30px;
+            width: 250px;
+            text-align: center;
+        }
+
+        input {
+            height: 50px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+<header>
+    <a href="main.html">
+        <h1><img src="outline_flutter_dash_black_24dp.png">대우유</h1>
+    </a>
+    <h1>음료소개</h1>
+    <h1>애기음료</h1>
+</header>
+<main>
+    <img th:src="${beverage.img}" style="height:340px;width:340px;">
+</main>
+<div class="buy">
+    <table border="2">
+        <th>제품</th>
+        <td th:text="${beverage.name}"></td>
+        <tr>
+            <!-- 첫번째 줄 시작 -->
+            <td>금액</td>
+            <td>
+                <p><span th:text="${beverage.price}"/>원</p>
+            </td>
+        </tr><!-- 첫번째 줄 끝 -->
+        <tr>
+            <!-- 두번째 줄 시작 -->
+            <td>수량</td>
+            <td>
+                <p><span th:text="${beverage.amount}"/>개</p>
+            </td>
+        </tr><!-- 두번째 줄 끝 -->
+    </table>
+</div>
+
+
+<div class="buy">
+    <form action="/bev/buy" method="post">
+        <button type="submit">구매하기</button>
+    </form>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="referrer" content="no-referrer"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width = device-width, initial-scale = 1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> MainPage </title>
+    <style>
+        header {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            border-bottom: 1px solid black;
+        }
+
+        .banner .title {
+            font-size: 240px;
+            width: 100%;
+            text-align: center;
+            font-family: 'Black Han Sans', sans-serif;
+            font-weight: 900;
+            opacity: 40%;
+            margin: 10px;
+        }
+
+        .banner .text {
+            text-align: center;
+            font-size: 20px;
+            font-weight: 100;
+            margin-bottom: 10vh;
+        }
+
+        main {
+            dis play: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        main img {
+            width: 80px;
+        }
+
+        ul {
+              display: block;
+              list-style-type: disc;
+              margin-block-start: 1em;
+               margin-block-end: 1em;
+               margin-inline-start: 0px;
+               margin-inline-end: 0px;
+               padding-inline-start: 40px;
+         }
+
+         li{
+            list-style: none;
+            margin: 1vh;
+            display: list-item;
+            float: left;
+            text-align: -webkit-match-parent;
+        }
+
+        li a{
+            margin: 0px 110px;
+            text-align: center;
+            font-size: 20px;
+        }
+        a{
+            text-decoration: none;
+        }
+        .image{
+            margin-left: -10px;
+        }
+        header h1:hover{
+            color:greenyellow;
+        }
+
+        div{
+            display: inline-block;
+            width: 100%
+            }
+
+
+    </style>
+
+</head>
+
+<body>
+<header>
+    <h1><img src="outline_flutter_dash_black_24dp.png">대우유</h1>
+    <h1>음료소개</h1>
+    <h1>애기음료</h1>
+</header>
+
+<div class="banner">
+    <p class="title">DAEWUYOU</p>
+    <p class="text">대우유에서 파는 음료수 사세요~</p>
+</div>
+
+<main>
+
+    <div>
+        <ul>
+            <li class="image" th:each="beverage : ${beverages}" style="width:33%">
+                <a th:href="@{/Subd(id=${beverage.id})}" height="478px">
+                    <dl style="height: 456px">
+                        <dt>
+                            <img th:src="${beverage.img}" style="height:340px;width:340px;">
+                        </dt>
+                        <dd>
+                            <div>
+                                <p th:text = "${beverage.name}"></p>
+                                <p><span th:text="${beverage.price}"/>원</p>
+                            </div>
+                        </dd>
+                    </dl>
+                </a>
+            </li>
+        </ul>
+    </div>
+</main>
+</body>
+</html>
